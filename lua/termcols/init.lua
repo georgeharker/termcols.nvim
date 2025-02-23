@@ -387,6 +387,12 @@ function M.map_highlight(highlights)
   return res
 end
 
+function M.termcols()
+  if vim.fn.has("gui_running") == 0 then
+    vim.opt.termguicolors = false
+  end
+end
+
 ---@param highlights table
 function M.map_highlights(highlights)
   if vim.fn.has("gui_running") == 0 then
@@ -395,13 +401,13 @@ function M.map_highlights(highlights)
         highlights[key] = M.map_highlight(value)
       end
     end
-    vim.opt.termguicolors = false
-  end
-end
 
-function M.termcols()
-  if vim.fn.has("gui_running") == 0 then
-    vim.opt.termguicolors = false
+    local termcols_augroup = vim.api.nvim_create_augroup('termcols_augroup', {clear = true})
+    vim.api.nvim_create_autocmd({'ColorScheme'}, {
+        pattern = {'*'},
+        callback = M.termcols,
+        group = termcols_augroup
+    })
   end
 end
 
