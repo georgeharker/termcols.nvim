@@ -245,79 +245,79 @@ M.colortable[255] = "#eeeeee"
 
 -- check for empty colors
 function M.is_empty_or_none(s)
-  return s == nil or s == "NONE" or s == ''
+  return s == nil or s == "NONE" or s == ""
 end
 
 -- lookup color
 function M.get_terminal_color(s)
-    if M.is_empty_or_none(s) then
-        return "NONE"
-    end
-    return M.colortable[s]
+  if M.is_empty_or_none(s) then
+    return "NONE"
+  end
+  return M.colortable[s]
 end
 
 -- returns an approximate grey index for the given grey level
 function M.grey_number(x)
-    if x < 14 then
-        return 0
+  if x < 14 then
+    return 0
+  else
+    local n = math.floor((x - 8) / 10)
+    local m = (x - 8) % 10
+    if m < 5 then
+      return n
     else
-        local n = math.floor((x - 8) / 10)
-        local m = (x - 8) % 10
-        if m < 5 then
-            return n
-        else
-           return n + 1
-        end
+      return n + 1
     end
+  end
 end
 
 -- returns the actual grey level represented by the grey index
 function M.grey_level(n)
-    if n == 0 then
-        return 0
-    else
-        return 8 + (n * 10)
-    end
+  if n == 0 then
+    return 0
+  else
+    return 8 + (n * 10)
+  end
 end
 
 -- returns the palette index for the given grey index
 function M.grey_color(n)
-    if n == 0 then
-        return 16
-    elseif n == 25 then
-        return 231
-    else
-        return 231 + n
-    end
+  if n == 0 then
+    return 16
+  elseif n == 25 then
+    return 231
+  else
+    return 231 + n
+  end
 end
 
 -- returns an approximate color index for the given color level
 function M.rgb_number(x)
-    if x < 75 then
-        return 0
+  if x < 75 then
+    return 0
+  else
+    local n = math.floor((x - 55) / 40)
+    local m = (x - 55) % 40
+    if m < 20 then
+      return n
     else
-        local n = math.floor((x - 55) / 40)
-        local m = (x - 55) % 40
-        if m < 20 then
-            return n
-        else
-            return n + 1
-        end
+      return n + 1
     end
+  end
 end
 
 -- returns the actual color level for the given color index
 function M.rgb_level(n)
-    if n == 0 then
-        return 0
-    else
-        return 55 + (n * 40)
-    end
+  if n == 0 then
+    return 0
+  else
+    return 55 + (n * 40)
+  end
 end
 
 --  returns the palette index for the given R/G/B color indices
 function M.rgb_color(x, y, z)
-    return 16 + (x * 36) + (y * 6) + z
+  return 16 + (x * 36) + (y * 6) + z
 end
 
 -- returns the palette index to approximate the given R/G/B color levels
@@ -364,7 +364,7 @@ end
 ---@param rgb string color
 function M.rgb(rgb)
   if M.is_empty_or_none(rgb) then
-    return 'NONE'
+    return "NONE"
   end
   local r = ("0x" .. string.sub(rgb, 2, 3)) + 0
   local g = ("0x" .. string.sub(rgb, 4, 5)) + 0
@@ -376,12 +376,12 @@ end
 function M.map_highlight(highlights)
   local res = {}
   for key, value in pairs(highlights) do
-    if key == 'fg' then
-        value = M.rgb(value)
-        res['ctermfg'] = value
-    elseif key == 'bg' then
-        value = M.rgb(value)
-        res['ctermbg'] = value
+    if key == "fg" then
+      value = M.rgb(value)
+      res["ctermfg"] = value
+    elseif key == "bg" then
+      value = M.rgb(value)
+      res["ctermbg"] = value
     end
   end
   return res
@@ -389,13 +389,14 @@ end
 
 ---@param highlights table
 function M.map_highlights(highlights)
-  for key, value in pairs(highlights) do
-    if type(value) == "table" then
+  if vim.fn.has("gui_running") == 0 then
+    for key, value in pairs(highlights) do
+      if type(value) == "table" then
         highlights[key] = M.map_highlight(value)
+      end
     end
+    vim.opt.termguicolors = false
   end
 end
 
-
 return M
-
