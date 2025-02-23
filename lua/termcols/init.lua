@@ -323,7 +323,7 @@ end
 -- returns the palette index to approximate the given R/G/B color levels
 function M.color(r, g, b)
   -- map greys directly (see xterm's 256colres.pl)
-  if vim.o.t_Co == 256 and r == g and g == b and r > 3 and r < 243 then
+  if r == g and g == b and r > 3 and r < 243 then
     return math.floor((r - 8) / 10) + 232
   end
 
@@ -377,24 +377,23 @@ function M.map_highlight(highlights)
   local res = {}
   for key, value in pairs(highlights) do
     if key == 'fg' then
-        key = 'ctermfg'
         value = M.rgb(value)
+        res['ctermfg'] = value
     elseif key == 'bg' then
-        key = 'ctermbg'
         value = M.rgb(value)
+        res['ctermbg'] = value
     end
-    res[key] = value
   end
   return res
 end
 
 ---@param highlights table
 function M.map_highlights(highlights)
-  local res = {}
   for key, value in pairs(highlights) do
-    res[key] = M.map_highlight(value)
+    if type(value) == "table" then
+        highlights[key] = M.map_highlight(value)
+    end
   end
-  return res
 end
 
 
