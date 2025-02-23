@@ -399,4 +399,10 @@ function M.map_highlights(highlights)
   end
 end
 
+function M.termcols()
+  if vim.fn.has("gui_running") == 0 then
+    vim.opt.termguicolors = false
+  end
+end
+
 return M
