@@ -20,7 +20,7 @@ Use like so
          end,
          on_highlights = function(highlights, colors)
             -- customize highlights as needed
-            colors.TabLine  = { bg = colors.bg_statusline, fg = colors.fg_gutter_lt }
+            highlights.TabLine  = { bg = colors.bg_statusline, fg = colors.fg_gutter_lt }
             -- this is the key line which ensures functionality on non true color terminals
             require('termcols').map_highlights(highlights)
          end
