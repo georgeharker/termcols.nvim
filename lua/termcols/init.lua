@@ -1,259 +1,8 @@
 local M = {}
 
--- Currently unused for reversed mapping
-M.colortable = {}
-M.colortable[16] = "#000000"
-M.colortable[17] = "#00005f"
-M.colortable[18] = "#000087"
-M.colortable[19] = "#0000af"
-M.colortable[20] = "#0000d7"
-M.colortable[21] = "#0000ff"
-M.colortable[22] = "#005f00"
-M.colortable[23] = "#005f5f"
-M.colortable[24] = "#005f87"
-M.colortable[25] = "#005faf"
-M.colortable[26] = "#005fd7"
-M.colortable[27] = "#005fff"
-M.colortable[28] = "#008700"
-M.colortable[29] = "#00875f"
-M.colortable[30] = "#008787"
-M.colortable[31] = "#0087af"
-M.colortable[32] = "#0087d7"
-M.colortable[33] = "#0087ff"
-M.colortable[34] = "#00af00"
-M.colortable[35] = "#00af5f"
-M.colortable[36] = "#00af87"
-M.colortable[37] = "#00afaf"
-M.colortable[38] = "#00afd7"
-M.colortable[39] = "#00afff"
-M.colortable[40] = "#00d700"
-M.colortable[41] = "#00d75f"
-M.colortable[42] = "#00d787"
-M.colortable[43] = "#00d7af"
-M.colortable[44] = "#00d7d7"
-M.colortable[45] = "#00d7ff"
-M.colortable[46] = "#00ff00"
-M.colortable[47] = "#00ff5f"
-M.colortable[48] = "#00ff87"
-M.colortable[49] = "#00ffaf"
-M.colortable[50] = "#00ffd7"
-M.colortable[51] = "#00ffff"
-M.colortable[52] = "#5f0000"
-M.colortable[53] = "#5f005f"
-M.colortable[54] = "#5f0087"
-M.colortable[55] = "#5f00af"
-M.colortable[56] = "#5f00d7"
-M.colortable[57] = "#5f00ff"
-M.colortable[58] = "#5f5f00"
-M.colortable[59] = "#5f5f5f"
-M.colortable[60] = "#5f5f87"
-M.colortable[61] = "#5f5faf"
-M.colortable[62] = "#5f5fd7"
-M.colortable[63] = "#5f5fff"
-M.colortable[64] = "#5f8700"
-M.colortable[65] = "#5f875f"
-M.colortable[66] = "#5f8787"
-M.colortable[67] = "#5f87af"
-M.colortable[68] = "#5f87d7"
-M.colortable[69] = "#5f87ff"
-M.colortable[70] = "#5faf00"
-M.colortable[71] = "#5faf5f"
-M.colortable[72] = "#5faf87"
-M.colortable[73] = "#5fafaf"
-M.colortable[74] = "#5fafd7"
-M.colortable[75] = "#5fafff"
-M.colortable[76] = "#5fd700"
-M.colortable[77] = "#5fd75f"
-M.colortable[78] = "#5fd787"
-M.colortable[79] = "#5fd7af"
-M.colortable[80] = "#5fd7d7"
-M.colortable[81] = "#5fd7ff"
-M.colortable[82] = "#5fff00"
-M.colortable[83] = "#5fff5f"
-M.colortable[84] = "#5fff87"
-M.colortable[85] = "#5fffaf"
-M.colortable[86] = "#5fffd7"
-M.colortable[87] = "#5fffff"
-M.colortable[88] = "#870000"
-M.colortable[89] = "#87005f"
-M.colortable[90] = "#870087"
-M.colortable[91] = "#8700af"
-M.colortable[92] = "#8700d7"
-M.colortable[93] = "#8700ff"
-M.colortable[94] = "#875f00"
-M.colortable[95] = "#875f5f"
-M.colortable[96] = "#875f87"
-M.colortable[97] = "#875faf"
-M.colortable[98] = "#875fd7"
-M.colortable[99] = "#875fff"
-M.colortable[100] = "#878700"
-M.colortable[101] = "#87875f"
-M.colortable[102] = "#878787"
-M.colortable[103] = "#8787af"
-M.colortable[104] = "#8787d7"
-M.colortable[105] = "#8787ff"
-M.colortable[106] = "#87af00"
-M.colortable[107] = "#87af5f"
-M.colortable[108] = "#87af87"
-M.colortable[109] = "#87afaf"
-M.colortable[110] = "#87afd7"
-M.colortable[111] = "#87afff"
-M.colortable[112] = "#87d700"
-M.colortable[113] = "#87d75f"
-M.colortable[114] = "#87d787"
-M.colortable[115] = "#87d7af"
-M.colortable[116] = "#87d7d7"
-M.colortable[117] = "#87d7ff"
-M.colortable[118] = "#87ff00"
-M.colortable[119] = "#87ff5f"
-M.colortable[120] = "#87ff87"
-M.colortable[121] = "#87ffaf"
-M.colortable[122] = "#87ffd7"
-M.colortable[123] = "#87ffff"
-M.colortable[124] = "#af0000"
-M.colortable[125] = "#af005f"
-M.colortable[126] = "#af0087"
-M.colortable[127] = "#af00af"
-M.colortable[128] = "#af00d7"
-M.colortable[129] = "#af00ff"
-M.colortable[130] = "#af5f00"
-M.colortable[131] = "#af5f5f"
-M.colortable[132] = "#af5f87"
-M.colortable[133] = "#af5faf"
-M.colortable[134] = "#af5fd7"
-M.colortable[135] = "#af5fff"
-M.colortable[136] = "#af8700"
-M.colortable[137] = "#af875f"
-M.colortable[138] = "#af8787"
-M.colortable[139] = "#af87af"
-M.colortable[140] = "#af87d7"
-M.colortable[141] = "#af87ff"
-M.colortable[142] = "#afaf00"
-M.colortable[143] = "#afaf5f"
-M.colortable[144] = "#afaf87"
-M.colortable[145] = "#afafaf"
-M.colortable[146] = "#afafd7"
-M.colortable[147] = "#afafff"
-M.colortable[148] = "#afd700"
-M.colortable[149] = "#afd75f"
-M.colortable[150] = "#afd787"
-M.colortable[151] = "#afd7af"
-M.colortable[152] = "#afd7d7"
-M.colortable[153] = "#afd7ff"
-M.colortable[154] = "#afff00"
-M.colortable[155] = "#afff5f"
-M.colortable[156] = "#afff87"
-M.colortable[157] = "#afffaf"
-M.colortable[158] = "#afffd7"
-M.colortable[159] = "#afffff"
-M.colortable[160] = "#d70000"
-M.colortable[161] = "#d7005f"
-M.colortable[162] = "#d70087"
-M.colortable[163] = "#d700af"
-M.colortable[164] = "#d700d7"
-M.colortable[165] = "#d700ff"
-M.colortable[166] = "#d75f00"
-M.colortable[167] = "#d75f5f"
-M.colortable[168] = "#d75f87"
-M.colortable[169] = "#d75faf"
-M.colortable[170] = "#d75fd7"
-M.colortable[171] = "#d75fff"
-M.colortable[172] = "#d78700"
-M.colortable[173] = "#d7875f"
-M.colortable[174] = "#d78787"
-M.colortable[175] = "#d787af"
-M.colortable[176] = "#d787d7"
-M.colortable[177] = "#d787ff"
-M.colortable[178] = "#d7af00"
-M.colortable[179] = "#d7af5f"
-M.colortable[180] = "#d7af87"
-M.colortable[181] = "#d7afaf"
-M.colortable[182] = "#d7afd7"
-M.colortable[183] = "#d7afff"
-M.colortable[184] = "#d7d700"
-M.colortable[185] = "#d7d75f"
-M.colortable[186] = "#d7d787"
-M.colortable[187] = "#d7d7af"
-M.colortable[188] = "#d7d7d7"
-M.colortable[189] = "#d7d7ff"
-M.colortable[190] = "#d7ff00"
-M.colortable[191] = "#d7ff5f"
-M.colortable[192] = "#d7ff87"
-M.colortable[193] = "#d7ffaf"
-M.colortable[194] = "#d7ffd7"
-M.colortable[195] = "#d7ffff"
-M.colortable[196] = "#ff0000"
-M.colortable[197] = "#ff005f"
-M.colortable[198] = "#ff0087"
-M.colortable[199] = "#ff00af"
-M.colortable[200] = "#ff00d7"
-M.colortable[201] = "#ff00ff"
-M.colortable[202] = "#ff5f00"
-M.colortable[203] = "#ff5f5f"
-M.colortable[204] = "#ff5f87"
-M.colortable[205] = "#ff5faf"
-M.colortable[206] = "#ff5fd7"
-M.colortable[207] = "#ff5fff"
-M.colortable[208] = "#ff8700"
-M.colortable[209] = "#ff875f"
-M.colortable[210] = "#ff8787"
-M.colortable[211] = "#ff87af"
-M.colortable[212] = "#ff87d7"
-M.colortable[213] = "#ff87ff"
-M.colortable[214] = "#ffaf00"
-M.colortable[215] = "#ffaf5f"
-M.colortable[216] = "#ffaf87"
-M.colortable[217] = "#ffafaf"
-M.colortable[218] = "#ffafd7"
-M.colortable[219] = "#ffafff"
-M.colortable[220] = "#ffd700"
-M.colortable[221] = "#ffd75f"
-M.colortable[222] = "#ffd787"
-M.colortable[223] = "#ffd7af"
-M.colortable[224] = "#ffd7d7"
-M.colortable[225] = "#ffd7ff"
-M.colortable[226] = "#ffff00"
-M.colortable[227] = "#ffff5f"
-M.colortable[228] = "#ffff87"
-M.colortable[229] = "#ffffaf"
-M.colortable[230] = "#ffffd7"
-M.colortable[231] = "#ffffff"
-M.colortable[232] = "#080808"
-M.colortable[233] = "#121212"
-M.colortable[234] = "#1c1c1c"
-M.colortable[235] = "#262626"
-M.colortable[236] = "#303030"
-M.colortable[237] = "#3a3a3a"
-M.colortable[238] = "#444444"
-M.colortable[239] = "#4e4e4e"
-M.colortable[240] = "#585858"
-M.colortable[241] = "#626262"
-M.colortable[242] = "#6c6c6c"
-M.colortable[243] = "#767676"
-M.colortable[244] = "#808080"
-M.colortable[245] = "#8a8a8a"
-M.colortable[246] = "#949494"
-M.colortable[247] = "#9e9e9e"
-M.colortable[248] = "#a8a8a8"
-M.colortable[249] = "#b2b2b2"
-M.colortable[250] = "#bcbcbc"
-M.colortable[251] = "#c6c6c6"
-M.colortable[252] = "#d0d0d0"
-M.colortable[253] = "#dadada"
-M.colortable[254] = "#e4e4e4"
-M.colortable[255] = "#eeeeee"
-
 -- check for empty colors
 function M.is_empty_or_none(s)
   return s == nil or s == "NONE" or s == ""
-end
-
--- lookup color
-function M.get_terminal_color(s)
-  if M.is_empty_or_none(s) then
-    return "NONE"
-  end
-  return M.colortable[s]
 end
 
 -- returns an approximate grey index for the given grey level
@@ -372,6 +121,319 @@ function M.rgb(rgb)
   return M.color(r, g, b)
 end
 
+-- credit to lualune (nvim-lualine/lualine.nvim)
+
+-- Currently unused for reversed mapping
+-- stylua: ignore start
+-- color conversion
+local color_table = {
+  -- lookup table for cterm colors
+  -- format {'color_code', {r,g,b}}
+
+  -- Primary 3-bit (8 colors). Unique representation!
+  {00, {   0,   0,   0 }},
+  {01, { 128,   0,   0 }},
+  {02, {   0, 128,   0 }},
+  {03, { 128, 128,   0 }},
+  {04, {   0,   0, 128 }},
+  {05, { 128,   0, 128 }},
+  {06, {   0, 128, 128 }},
+  {07, { 192, 192, 192 }},
+
+  -- equivalent "bright" versions of original 8 colors.
+  {08, { 128, 128, 128 }},
+  {09, { 255,   0,   0 }},
+  {10, {   0, 255,   0 }},
+  {11, { 255, 255,   0 }},
+  {12, {   0,   0, 255 }},
+  {13, { 255,   0, 255 }},
+  {14, {   0, 255, 255 }},
+  {15, { 255, 255, 255 }},
+
+  -- Strictly ascending.
+  {16, {   0,   0,   0 }},
+  {17, {   0,   0,  95 }},
+  {18, {   0,   0, 135 }},
+  {19, {   0,   0, 175 }},
+  {20, {   0,   0, 215 }},
+  {21, {   0,   0, 255 }},
+  {22, {   0,  95,   0 }},
+  {23, {   0,  95,  95 }},
+  {24, {   0,  95, 135 }},
+  {25, {   0,  95, 175 }},
+  {26, {   0,  95, 215 }},
+  {27, {   0,  95, 255 }},
+  {28, {   0, 135,   0 }},
+  {29, {   0, 135,  95 }},
+  {30, {   0, 135, 135 }},
+  {31, {   0, 135, 175 }},
+  {32, {   0, 135, 215 }},
+  {33, {   0, 135, 255 }},
+  {34, {   0, 175,   0 }},
+  {35, {   0, 175,  95 }},
+  {36, {   0, 175, 135 }},
+  {37, {   0, 175, 175 }},
+  {38, {   0, 175, 215 }},
+  {39, {   0, 175, 255 }},
+  {40, {   0, 215,   0 }},
+  {41, {   0, 215,  95 }},
+  {42, {   0, 215, 135 }},
+  {43, {   0, 215, 175 }},
+  {44, {   0, 215, 215 }},
+  {45, {   0, 215, 255 }},
+  {46, {   0, 255,   0 }},
+  {47, {   0, 255,  95 }},
+  {48, {   0, 255, 135 }},
+  {49, {   0, 255, 175 }},
+  {50, {   0, 255, 215 }},
+  {51, {   0, 255, 255 }},
+  {52, {  95,   0,   0 }},
+  {53, {  95,   0,  95 }},
+  {54, {  95,   0, 135 }},
+  {55, {  95,   0, 175 }},
+  {56, {  95,   0, 215 }},
+  {57, {  95,   0, 255 }},
+  {58, {  95,  95,   0 }},
+  {59, {  95,  95,  95 }},
+  {60, {  95,  95, 135 }},
+  {61, {  95,  95, 175 }},
+  {62, {  95,  95, 215 }},
+  {63, {  95,  95, 255 }},
+  {64, {  95, 135,   0 }},
+  {65, {  95, 135,  95 }},
+  {66, {  95, 135, 135 }},
+  {67, {  95, 135, 175 }},
+  {68, {  95, 135, 215 }},
+  {69, {  95, 135, 255 }},
+  {70, {  95, 175,   0 }},
+  {71, {  95, 175,  95 }},
+  {72, {  95, 175, 135 }},
+  {73, {  95, 175, 175 }},
+  {74, {  95, 175, 215 }},
+  {75, {  95, 175, 255 }},
+  {76, {  95, 215,   0 }},
+  {77, {  95, 215,  95 }},
+  {78, {  95, 215, 135 }},
+  {79, {  95, 215, 175 }},
+  {80, {  95, 215, 215 }},
+  {81, {  95, 215, 255 }},
+  {82, {  95, 255,   0 }},
+  {83, {  95, 255,  95 }},
+  {84, {  95, 255, 135 }},
+  {85, {  95, 255, 175 }},
+  {86, {  95, 255, 215 }},
+  {87, {  95, 255, 255 }},
+  {88, { 135,   0,   0 }},
+  {89, { 135,   0,  95 }},
+  {90, { 135,   0, 135 }},
+  {91, { 135,   0, 175 }},
+  {92, { 135,   0, 215 }},
+  {93, { 135,   0, 255 }},
+  {94, { 135,  95,   0 }},
+  {95, { 135,  95,  95 }},
+  {96, { 135,  95, 135 }},
+  {97, { 135,  95, 175 }},
+  {98, { 135,  95, 215 }},
+  {99, { 135,  95, 255 }},
+  {100, { 135, 135,   0 }},
+  {101, { 135, 135,  95 }},
+  {102, { 135, 135, 135 }},
+  {103, { 135, 135, 175 }},
+  {104, { 135, 135, 215 }},
+  {105, { 135, 135, 255 }},
+  {106, { 135, 175,   0 }},
+  {107, { 135, 175,  95 }},
+  {108, { 135, 175, 135 }},
+  {109, { 135, 175, 175 }},
+  {110, { 135, 175, 215 }},
+  {111, { 135, 175, 255 }},
+  {112, { 135, 215,   0 }},
+  {113, { 135, 215,  95 }},
+  {114, { 135, 215, 135 }},
+  {115, { 135, 215, 175 }},
+  {116, { 135, 215, 215 }},
+  {117, { 135, 215, 255 }},
+  {118, { 135, 255,   0 }},
+  {119, { 135, 255,  95 }},
+  {120, { 135, 255, 135 }},
+  {121, { 135, 255, 175 }},
+  {122, { 135, 255, 215 }},
+  {123, { 135, 255, 255 }},
+  {124, { 175,   0,   0 }},
+  {125, { 175,   0,  95 }},
+  {126, { 175,   0, 135 }},
+  {127, { 175,   0, 175 }},
+  {128, { 175,   0, 215 }},
+  {129, { 175,   0, 255 }},
+  {130, { 175,  95,   0 }},
+  {131, { 175,  95,  95 }},
+  {132, { 175,  95, 135 }},
+  {133, { 175,  95, 175 }},
+  {134, { 175,  95, 215 }},
+  {135, { 175,  95, 255 }},
+  {136, { 175, 135,   0 }},
+  {137, { 175, 135,  95 }},
+  {138, { 175, 135, 135 }},
+  {139, { 175, 135, 175 }},
+  {140, { 175, 135, 215 }},
+  {141, { 175, 135, 255 }},
+  {142, { 175, 175,   0 }},
+  {143, { 175, 175,  95 }},
+  {144, { 175, 175, 135 }},
+  {145, { 175, 175, 175 }},
+  {146, { 175, 175, 215 }},
+  {147, { 175, 175, 255 }},
+  {148, { 175, 215,   0 }},
+  {149, { 175, 215,  95 }},
+  {150, { 175, 215, 135 }},
+  {151, { 175, 215, 175 }},
+  {152, { 175, 215, 215 }},
+  {153, { 175, 215, 255 }},
+  {154, { 175, 255,   0 }},
+  {155, { 175, 255,  95 }},
+  {156, { 175, 255, 135 }},
+  {157, { 175, 255, 175 }},
+  {158, { 175, 255, 215 }},
+  {159, { 175, 255, 255 }},
+  {160, { 215,   0,   0 }},
+  {161, { 215,   0,  95 }},
+  {162, { 215,   0, 135 }},
+  {163, { 215,   0, 175 }},
+  {164, { 215,   0, 215 }},
+  {165, { 215,   0, 255 }},
+  {166, { 215,  95,   0 }},
+  {167, { 215,  95,  95 }},
+  {168, { 215,  95, 135 }},
+  {169, { 215,  95, 175 }},
+  {170, { 215,  95, 215 }},
+  {171, { 215,  95, 255 }},
+  {172, { 215, 135,   0 }},
+  {173, { 215, 135,  95 }},
+  {174, { 215, 135, 135 }},
+  {175, { 215, 135, 175 }},
+  {176, { 215, 135, 215 }},
+  {177, { 215, 135, 255 }},
+  {178, { 215, 175,   0 }},
+  {179, { 215, 175,  95 }},
+  {180, { 215, 175, 135 }},
+  {181, { 215, 175, 175 }},
+  {182, { 215, 175, 215 }},
+  {183, { 215, 175, 255 }},
+  {184, { 215, 215,   0 }},
+  {185, { 215, 215,  95 }},
+  {186, { 215, 215, 135 }},
+  {187, { 215, 215, 175 }},
+  {188, { 215, 215, 215 }},
+  {189, { 215, 215, 255 }},
+  {190, { 215, 255,   0 }},
+  {191, { 215, 255,  95 }},
+  {192, { 215, 255, 135 }},
+  {193, { 215, 255, 175 }},
+  {194, { 215, 255, 215 }},
+  {195, { 215, 255, 255 }},
+  {196, { 255,   0,   0 }},
+  {197, { 255,   0,  95 }},
+  {198, { 255,   0, 135 }},
+  {199, { 255,   0, 175 }},
+  {200, { 255,   0, 215 }},
+  {201, { 255,   0, 255 }},
+  {202, { 255,  95,   0 }},
+  {203, { 255,  95,  95 }},
+  {204, { 255,  95, 135 }},
+  {205, { 255,  95, 175 }},
+  {206, { 255,  95, 215 }},
+  {207, { 255,  95, 255 }},
+  {208, { 255, 135,   0 }},
+  {209, { 255, 135,  95 }},
+  {210, { 255, 135, 135 }},
+  {211, { 255, 135, 175 }},
+  {212, { 255, 135, 215 }},
+  {213, { 255, 135, 255 }},
+  {214, { 255, 175,   0 }},
+  {215, { 255, 175,  95 }},
+  {216, { 255, 175, 135 }},
+  {217, { 255, 175, 175 }},
+  {218, { 255, 175, 215 }},
+  {219, { 255, 175, 255 }},
+  {220, { 255, 215,   0 }},
+  {221, { 255, 215,  95 }},
+  {222, { 255, 215, 135 }},
+  {223, { 255, 215, 175 }},
+  {224, { 255, 215, 215 }},
+  {225, { 255, 215, 255 }},
+  {226, { 255, 255,   0 }},
+  {227, { 255, 255,  95 }},
+  {228, { 255, 255, 135 }},
+  {229, { 255, 255, 175 }},
+  {230, { 255, 255, 215 }},
+  {231, { 255, 255, 255 }},
+
+  -- Gray-scale range.
+  {232, {   8,   8,   8 }},
+  {233, {  18,  18,  18 }},
+  {234, {  28,  28,  28 }},
+  {235, {  38,  38,  38 }},
+  {236, {  48,  48,  48 }},
+  {237, {  58,  58,  58 }},
+  {238, {  68,  68,  68 }},
+  {239, {  78,  78,  78 }},
+  {240, {  88,  88,  88 }},
+  {241, {  98,  98,  98 }},
+  {242, { 108, 108, 108 }},
+  {243, { 118, 118, 118 }},
+  {244, { 128, 128, 128 }},
+  {245, { 138, 138, 138 }},
+  {246, { 148, 148, 148 }},
+  {247, { 158, 158, 158 }},
+  {248, { 168, 168, 168 }},
+  {249, { 178, 178, 178 }},
+  {250, { 188, 188, 188 }},
+  {251, { 198, 198, 198 }},
+  {252, { 208, 208, 208 }},
+  {253, { 218, 218, 218 }},
+  {254, { 228, 228, 228 }},
+  {255, { 238, 238, 238 }},
+}
+-- stylua: ignore end
+
+-- check for empty colors
+function M.is_empty_or_none(s)
+  return s == nil or s == "NONE" or s == "None" or s == ""
+end
+
+---converts #rrggbb formatted color to cterm ('0'-'255') color
+---@param hex_color string
+---@return (integer | string)
+function M.rgb2cterm(hex_color)
+  if M.is_empty_or_none(hex_color) then
+    return 'None'
+  end
+  local function get_color_distance(color1, color2)
+    -- returns how much color2 deviates from color1
+    local dr = math.abs(color1[1] - color2[1]) / (color1[1] + 1) * 100
+    local dg = math.abs(color1[2] - color2[2]) / (color1[2] + 1) * 100
+    local db = math.abs(color1[3] - color2[3]) / (color1[3] + 1) * 100
+    return (dr + dg + db)
+  end
+
+  local r = tonumber(hex_color:sub(2, 3), 16)
+  local g = tonumber(hex_color:sub(4, 5), 16)
+  local b = tonumber(hex_color:sub(6, 7), 16)
+
+  -- check which cterm color is closest to hex colors in terms of rgb values
+  ---@type integer
+  local closest_cterm_color = 0
+  local min_distance = 10000
+  for _, color in ipairs(color_table) do
+    local current_distance = get_color_distance(color[2], { r, g, b })
+    if current_distance < min_distance then
+      min_distance = current_distance
+      closest_cterm_color = color[1]
+    end
+  end
+  return closest_cterm_color
+end
+
 ---@param highlights table
 function M.map_highlight(highlights)
   local res = {}
@@ -387,7 +449,7 @@ function M.map_highlight(highlights)
   return res
 end
 
-function M.termcols()
+function M.maybe_disable_guitermcols()
   if vim.fn.has("gui_running") == 0 then
     vim.opt.termguicolors = false
   end
@@ -401,13 +463,24 @@ function M.map_highlights(highlights)
         highlights[key] = M.map_highlight(value)
       end
     end
+    --print(vim.inspect(highlights))
 
     local termcols_augroup = vim.api.nvim_create_augroup('termcols_augroup', {clear = true})
     vim.api.nvim_create_autocmd({'ColorScheme'}, {
         pattern = {'*'},
-        callback = M.termcols,
+        callback = M.maybe_disable_guitermcols,
         group = termcols_augroup
     })
+  end
+end
+
+function M.map_colors(colors)
+  if vim.fn.has("gui_running") == 0 then
+    for key, value in pairs(colors) do
+      if type(value) == "table" then
+        colors[key] = M.map_highlight(value)
+      end
+    end
   end
 end
 
