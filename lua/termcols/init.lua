@@ -481,7 +481,7 @@ function M.map_highlights(highlights)
 end
 
 function M.map_colors(colors)
-  if vim.fn.has("gui_running") == 0 then
+  if M.enable_termcols() then
     for key, value in pairs(colors) do
       if type(value) == "table" then
         colors[key] = M.map_highlight(value)
