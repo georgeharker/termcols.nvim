@@ -449,15 +449,19 @@ function M.map_highlight(highlights)
   return res
 end
 
+function M.enable_termcols()
+  return vim.fn.has("gui_running") == 0 and vim.fn.getenv("TERM") ~= "xterm-ghostty"
+end
+
 function M.maybe_disable_guitermcols()
-  if vim.fn.has("gui_running") == 0 then
+  if M.enable_termcols() then
     vim.opt.termguicolors = false
   end
 end
 
 ---@param highlights table
 function M.map_highlights(highlights)
-  if vim.fn.has("gui_running") == 0 then
+  if M.enable_termcols() then
     for key, value in pairs(highlights) do
       if type(value) == "table" then
         highlights[key] = M.map_highlight(value)
