@@ -456,6 +456,8 @@ end
 function M.maybe_disable_guitermcols()
   if M.enable_termcols() then
     vim.opt.termguicolors = false
+  else
+    vim.opt.termguicolors = true
   end
 end
 
